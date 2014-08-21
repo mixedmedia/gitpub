@@ -145,7 +145,7 @@ exports.getScraping = function(req, res, next) {
 exports.getGithub = function(req, res) {
   var token = _.find(req.user.tokens, { kind: 'github' });
   var github = new Github({ token: token.accessToken });
-  var repo = github.getRepo('sahat', 'requirejs-library');
+  var repo = github.getRepo('mixedmedia', 'gitpub');
   repo.show(function(err, repo) {
     res.render('api/github', {
       title: 'GitHub API',
@@ -154,6 +154,8 @@ exports.getGithub = function(req, res) {
   });
 
 };
+
+
 
 /**
  * GET /api/aviary
